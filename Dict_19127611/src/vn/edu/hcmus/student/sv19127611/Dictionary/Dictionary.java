@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Hashtable;
+import java.util.Vector;
 
 /**
  * vn.edu.hcmus.student.sv19127611.Dictionary
@@ -16,12 +17,21 @@ import java.util.Hashtable;
  */
 public class Dictionary {
     private static final Hashtable<String, String> hashtable = new Hashtable<>();
+    private static final Hashtable<String, String> _hashtable = new Hashtable<>();
+    private static final Vector<String> history = new Vector<String>();
 
     public static void main(String[] args) {
-        load("slang", ".txt");
+//        load("slang", ".txt");
+        add("1","1");
+        add("1","1");
 
-
+        System.out.print(hashtable.keySet());
     }
+
+    public static void _add(String slang, String meaning) {
+        _hashtable.put(slang, meaning);
+    }
+
     public static void add(String slang, String meaning) {
         hashtable.put(slang, meaning);
     }
@@ -35,11 +45,11 @@ public class Dictionary {
     }
 
     public static String find(String slang) {
+        history.add(slang);
         return hashtable.get(slang);
     }
 
-
-    public static void load(String fileName, String format) {
+    public static void load_ht(String fileName, String format) {
         try {
             fileName = fileName + format;
             FileReader reader = new FileReader(fileName);
@@ -51,11 +61,11 @@ public class Dictionary {
 
                 if (str.length == 2) {
                     add(str[0], str[1]);
+                    _add(str[1], str[0]);
                 }
                 else if (str.length == 1) {
                     add(str[0], "");
                 }
-
             }
 
             reader.close();
@@ -63,4 +73,6 @@ public class Dictionary {
             e.printStackTrace();
         }
     }
+
+
 }

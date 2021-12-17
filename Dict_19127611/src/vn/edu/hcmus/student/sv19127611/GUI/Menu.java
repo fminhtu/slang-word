@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * vn.edu.hcmus.student.sv19127611.GUI
@@ -11,61 +12,101 @@ import java.awt.event.ActionListener;
  * Date 12/16/2021 - 4:31 PM
  * Description: ...
  */
-public class Menu extends JFrame implements ActionListener {
-    JPanel history = new JPanel();
-    JPanel selection = new JPanel();
+public class Menu extends JFrame {
+    ArrayList<JButton> buttonList = new ArrayList<JButton>(10);
+    ArrayList<JLabel> labelList = new ArrayList<JLabel>(10);
+
     Container container;
 
-    JTable jt;
+    private enum Actions {
+        find1, find2, history, add, edit, delete, reset, random, game1, game2;
+    }
 
     public Menu() {
-        String[] column ={"ID","NAME","SALARY"};
-        String[][] data ={ {"101","Amit","670000"},
-                {"102","Jai","780000"},
-                {"101","Sachin","700000"}};
+        setLabelList();
+        setJButton();
 
-        jt = new JTable(data,column);
-        history.add(jt);
+        container = getContentPane();
+        container.setLayout(null);
 
         setBounds();
         addComponents();
         addActionListener();
     }
 
-    public void addHistoryPane() {
+    public void setLabelList(){
+        String[] label = {
+                "Find meaning with a slang words",
+                "Find slang words with a meaning",
+                "Show history: add, edit, delete",
+                "Add a slang word",
+                "Edit a slang word",
+                "Delete a slang word",
+                "Reset slang list",
+                "Random a slang word",
+                "Funny quiz: slang-meaning",
+                "Funny quiz: meaning-slang"
+        };
+
+        for (int i = 0; i < label.length; i++) {
+            labelList.add(new JLabel(label[i]));
+            System.out.println(label[i]);
+        }
     }
 
+    public void setJButton() {
+        int length = 10;
+        for (int i = 0; i < length; i++) {
+            buttonList.add(new JButton("Select"));
+        }
+    }
 
     public void setBounds() {
-        int xText = 10, textWidth = 250, buttonWidth = 80;
-        int xButton = 260;
+        int xText = 10, textWidth = 200;
+        int xButton = 220, buttonWidth = 80;
         int height = 25;
+        int y = 10;
 
-        history.setBounds(50, 50, 250, 250);
+        for (int i = 0; i < labelList.size(); i++) {
+            labelList.get(i).setBounds(xText, y, textWidth, height);
+            buttonList.get(i).setBounds(xButton, y, buttonWidth, height);
+            y += 30;
+        }
+
+
     }
 
 
     public void addComponents() {
-        add(history);
-//        history.add(jt);
+        for (int i = 0; i < labelList.size(); i++) {
+            container.add(labelList.get(i));
+            container.add(buttonList.get(i));
+        }
+
+
+
     }
 
     public void addActionListener() {
+        ButtonEvents instance = new ButtonEvents();
+
+        int i = 0;
+        for (Actions action : Actions.values()) {
+//            System.out.println(action);
+            buttonList.get(i).setActionCommand(action.name());
+            buttonList.get(i).addActionListener(instance);
+            i += 1;
+        }
 
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
-    }
 
     public static void CreateAndShowGUI() {
         Menu frame = new Menu();
         frame.setTitle("Dictionary");
         frame.setVisible(true);
-        frame.setBounds(250, 250, 500, 400);
+        frame.setBounds(250, 250, 330, 350);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
     }

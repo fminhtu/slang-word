@@ -18,7 +18,8 @@ import java.util.Vector;
 public class Dictionary {
     private static final Hashtable<String, String> hashtable = new Hashtable<>();
     private static final Hashtable<String, String> _hashtable = new Hashtable<>();
-    private static final Vector<String> history = new Vector<String>();
+
+    private static final Integer state = 0;
 
     public static void main(String[] args) {
 //        load("slang", ".txt");
@@ -28,12 +29,9 @@ public class Dictionary {
         System.out.print(hashtable.keySet());
     }
 
-    public static void _add(String slang, String meaning) {
-        _hashtable.put(slang, meaning);
-    }
-
     public static void add(String slang, String meaning) {
         hashtable.put(slang, meaning);
+        _hashtable.put(meaning, slang);
     }
 
     public static void delete(String slang) {
@@ -45,7 +43,6 @@ public class Dictionary {
     }
 
     public static String find(String slang) {
-        history.add(slang);
         return hashtable.get(slang);
     }
 
@@ -61,7 +58,6 @@ public class Dictionary {
 
                 if (str.length == 2) {
                     add(str[0], str[1]);
-                    _add(str[1], str[0]);
                 }
                 else if (str.length == 1) {
                     add(str[0], "");
@@ -72,6 +68,10 @@ public class Dictionary {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void load_history(String fileName, String format) {
+
     }
 
 

@@ -1,9 +1,12 @@
 package vn.edu.hcmus.student.sv19127611.GUI;
 
+import vn.edu.hcmus.student.sv19127611.Dictionary.Dict;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +25,9 @@ public class Menu extends JFrame {
         find1, find2, history, add, edit, delete, reset, random, game1, game2;
     }
 
+
     public Menu() {
+        Dict.loadHt("slang", ".txt");
         setLabelList();
         setJButton();
 
@@ -38,12 +43,12 @@ public class Menu extends JFrame {
         String[] label = {
                 "Find meaning with a slang words",
                 "Find slang words with a meaning",
-                "Show history: add, edit, delete",
+                "Show search history",
                 "Add a slang word",
                 "Edit a slang word",
                 "Delete a slang word",
                 "Reset slang list",
-                "Random a slang word",
+                "Slang word on this day",
                 "Funny quiz: slang-meaning",
                 "Funny quiz: meaning-slang"
         };
@@ -101,13 +106,21 @@ public class Menu extends JFrame {
 
     }
 
+    protected void processWindowEvent(WindowEvent e) {
+        super.processWindowEvent(e);
+        if(e.getID() == WindowEvent.WINDOW_CLOSING) {
+            Dict.saveHt("slang", ".txt");
+            System.exit(0);
+        }
+    }
 
     public static void CreateAndShowGUI() {
         Menu frame = new Menu();
         frame.setTitle("Dictionary");
         frame.setVisible(true);
         frame.setBounds(250, 250, 330, 350);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.setResizable(false);
+
     }
 }

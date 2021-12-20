@@ -3,8 +3,6 @@ package vn.edu.hcmus.student.sv19127611.GUI;
 import vn.edu.hcmus.student.sv19127611.Dictionary.Dict;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;

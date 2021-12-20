@@ -1,6 +1,5 @@
 package vn.edu.hcmus.student.sv19127611.Dictionary;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;

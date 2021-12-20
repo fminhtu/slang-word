@@ -205,7 +205,7 @@ public class ButtonEvents implements ActionListener {
 
         try {
             Dict.clearAllData();
-            Dict.loadHt("slang", ".txt");
+            Dict.saveHt("slang", ".txt");
 
             JOptionPane.showMessageDialog(f, "Reset success");
 

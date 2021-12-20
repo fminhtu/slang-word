@@ -93,7 +93,7 @@ public class Dict {
             fileName = fileName + format;
             FileReader reader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(reader);
-            String line;
+            String line = bufferedReader.readLine();
 
             while ((line = bufferedReader.readLine()) != null) {
                 String[] str = line.split("`");
@@ -118,6 +118,9 @@ public class Dict {
             fileName = fileName + format;
             FileWriter writer = new FileWriter(fileName, false);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+            bufferedWriter.write("Slag`Meaning");
+            bufferedWriter.newLine();
 
             Set<String> slangSet = hashtable.keySet();
             for (String slang : slangSet) {

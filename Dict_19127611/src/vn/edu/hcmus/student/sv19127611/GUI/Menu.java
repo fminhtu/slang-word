@@ -47,7 +47,7 @@ public class Menu extends JFrame {
                 "Add a slang word",
                 "Edit a slang word",
                 "Delete a slang word",
-                "Reset slang list",
+                "Reset list slang words",
                 "Slang word on this day",
                 "Funny quiz: slang-meaning",
                 "Funny quiz: meaning-slang"

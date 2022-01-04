@@ -59,8 +59,9 @@ public class MainFrame extends JFrame {
 
     private void setDataForComponents() {
         String[] column = {"Slang word", "Meaning"};
-        searchScrollPane.getViewport().add(new JTable(new String[0][], column));
-
+        JTable table = new JTable(new String[0][], column);
+        table.setEnabled(false);
+        searchScrollPane.getViewport().add(table);
         todayContentLabel.setText(ButtonEvents.today_slang());
     }
 
@@ -77,7 +78,7 @@ public class MainFrame extends JFrame {
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setBounds(300, 100, 700, 500);
+        setBounds(300, 100, 900, 600);
         setVisible(true);
         setTitle("Slang dictionary");
 
@@ -129,7 +130,9 @@ public class MainFrame extends JFrame {
                     data[0][1] = meaning;
 
                     searchScrollPane.getViewport().removeAll();
-                    searchScrollPane.getViewport().add(new JTable(data, column));
+                    JTable table = new JTable(data, column);
+                    table.setEnabled(false);
+                    searchScrollPane.getViewport().add(table);
 
                     String history = keyword + '\n' + historyArea.getText();
                     historyArea.setText(history);
@@ -174,6 +177,10 @@ public class MainFrame extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(f, "Incorrect answer");
                 }
+                ACheckBox.setSelected(false);
+                BCheckBox.setSelected(false);
+                CCheckBox.setSelected(false);
+                DCheckBox.setSelected(false);
             }
         });
     }

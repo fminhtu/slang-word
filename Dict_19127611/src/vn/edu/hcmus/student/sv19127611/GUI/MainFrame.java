@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
     private JScrollPane historyScrollPane;
     private JTextArea historyArea;
     private JPanel headerPane;
-    private JCheckBox answerCCheckBox;
+    private JCheckBox CCheckBox;
     private JComboBox searchType;
     private JComboBox modeComboBox;
     private JPanel modePane;
@@ -46,15 +46,16 @@ public class MainFrame extends JFrame {
     private JLabel modeLabel;
     private JPanel checkboxPane;
     private JPanel toolPane;
-    private JCheckBox answerACheckBox;
-    private JCheckBox answerBCheckBox;
-    private JCheckBox answerDCheckBox;
+    private JCheckBox ACheckBox;
+    private JCheckBox BCheckBox;
+    private JCheckBox DCheckBox;
     private JButton submitButton;
     private JButton selectButton;
     private JScrollPane searchScrollPane;
     private JTextPane questionPane;
     private JPanel demoPanel;
     private JTextArea textArea;
+    int index;
 
     private void setDataForComponents() {
         String[] column = {"Slang word", "Meaning"};
@@ -98,6 +99,9 @@ public class MainFrame extends JFrame {
         deleteButton.setActionCommand(Actions.edit.name());
         deleteButton.addActionListener(instance);
 
+        resetButton.setActionCommand(Actions.reset.name());
+        resetButton.addActionListener(instance);
+
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,38 +140,74 @@ public class MainFrame extends JFrame {
         selectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String mode = modeComboBox.getSelectedItem().toString();
-                if (mode == "Guess meaning") {
-                    String slang = ButtonEvents.random_slang();
-                    String answer[] = {"A", "B", "C", "D"};
-                    String question = "'" + slang + "'" + " is meaning? \n";
+                changeQuestion();
+            }
+        });
 
-                    int index = ButtonEvents.random_num(0, 3);
-                    for (int i = 0; i < 4; i++) {
-                        if (i == index) {
-                            question += answer[i] + ". " +  Dict.getMeaning(slang) + "\n";
-                        } else {
-                            question += answer[i] + ". " +  Dict.getMeaning(ButtonEvents.random_slang()) + "\n";
-                        }
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int r = -1;
+                JFrame f = new JFrame();
+                if (index == 0) {
+                    if (ACheckBox.isSelected() && !BCheckBox.isSelected() &&  !CCheckBox.isSelected() && !DCheckBox.isSelected()) {
+                        r = 0;
                     }
-                    questionPane.setText(question);
-                } else if (mode == "Guess slang word"){
-                    String meaning = Dict.getMeaning(ButtonEvents.random_slang());
-                    String answer[] = {"A", "B", "C", "D"};
-                    String question = "'" + meaning + "'" + " is slang word? \n";
+                } else if (index == 1){
+                    if (!ACheckBox.isSelected() && BCheckBox.isSelected() &&  !CCheckBox.isSelected() && !DCheckBox.isSelected()) {
+                        r = 1;
+                    }
+                } else if (index == 2){
+                    if (!ACheckBox.isSelected() && !BCheckBox.isSelected() &&  CCheckBox.isSelected() && !DCheckBox.isSelected()) {
+                        r = 2;
+                    }
+                } else if (index == 3){
+                    if (!ACheckBox.isSelected() && !BCheckBox.isSelected() &&  !CCheckBox.isSelected() && DCheckBox.isSelected()) {
+                        r = 3;
+                    }
+                }
 
-                    int index = ButtonEvents.random_num(0, 3);
-                    for (int i = 0; i < 4; i++) {
-                        if (i == index) {
-                            question += answer[i] + ". " +  Dict.getSlang(meaning) + "\n";
-                        } else {
-                            question += answer[i] + ". " +  Dict.getMeaning(ButtonEvents.random_slang()) + "\n";
-                        }
-                    }
-                    questionPane.setText(question);
+                if (r != -1) {
+                    JOptionPane.showMessageDialog(f, "Correct answer");
+                    changeQuestion();
+                } else {
+                    JOptionPane.showMessageDialog(f, "Incorrect answer");
                 }
             }
         });
+    }
+
+    private void changeQuestion() {
+        String mode = modeComboBox.getSelectedItem().toString();
+        if (mode == "Guess meaning") {
+            String slang = ButtonEvents.random_slang();
+            String answer[] = {"A", "B", "C", "D"};
+            String question = "'" + slang + "'" + " is meaning? \n";
+
+            index = ButtonEvents.random_num(0, 3);
+            for (int i = 0; i < 4; i++) {
+                if (i == index) {
+                    question += answer[i] + ". " +  Dict.getMeaning(slang) + "\n";
+                } else {
+                    question += answer[i] + ". " +  Dict.getMeaning(ButtonEvents.random_slang()) + "\n";
+                }
+            }
+            questionPane.setText(question);
+        } else if (mode == "Guess slang word"){
+            String meaning = Dict.getMeaning(ButtonEvents.random_slang());
+            String answer[] = {"A", "B", "C", "D"};
+            String question = "'" + meaning + "'" + " is slang word? \n";
+
+            index = ButtonEvents.random_num(0, 3);
+            for (int i = 0; i < 4; i++) {
+                if (i == index) {
+                    question += answer[i] + ". " +  Dict.getSlang(meaning) + "\n";
+                } else {
+                    question += answer[i] + ". " +  Dict.getMeaning(ButtonEvents.random_slang()) + "\n";
+                }
+            }
+            questionPane.setText(question);
+        }
     }
 
     public static void main(String[] args) {

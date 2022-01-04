@@ -52,8 +52,8 @@
                     <constraints border-constraint="West"/>
                     <properties>
                       <model>
-                        <item value="Slang word                              &#9;&#9;   &#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;"/>
-                        <item value="Meaning                           "/>
+                        <item value="Slang word"/>
+                        <item value="Meaning"/>
                       </model>
                     </properties>
                   </component>
@@ -159,7 +159,7 @@
                       <iconTextGap value="4"/>
                       <opaque value="false"/>
                       <requestFocusEnabled value="true"/>
-                      <text value="Tu dep trai vo dich"/>
+                      <text value="19127611"/>
                       <verifyInputWhenFocusTarget value="true"/>
                       <verticalTextPosition value="0"/>
                       <visible value="true"/>
@@ -184,15 +184,15 @@
                     <constraints/>
                     <properties>
                       <model>
-                        <item value="Guess meaning                   &#9;&#9;&#9;&#9;&#9;    "/>
-                        <item value="Guess slang word&#9;                 "/>
+                        <item value="Guess meaning"/>
+                        <item value="Guess slang word"/>
                       </model>
                     </properties>
                   </component>
                   <component id="21702" class="javax.swing.JButton" binding="selectButton" default-binding="true">
                     <constraints/>
                     <properties>
-                      <text value="Select"/>
+                      <text value="New question"/>
                     </properties>
                   </component>
                 </children>
@@ -204,26 +204,26 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="3650d" class="javax.swing.JCheckBox" binding="answerACheckBox" default-binding="true">
+                  <component id="3650d" class="javax.swing.JCheckBox" binding="ACheckBox">
                     <constraints/>
                     <properties>
                       <text value="Answer A"/>
                     </properties>
                   </component>
-                  <component id="21d38" class="javax.swing.JCheckBox" binding="answerBCheckBox" default-binding="true">
+                  <component id="21d38" class="javax.swing.JCheckBox" binding="BCheckBox">
                     <constraints/>
                     <properties>
                       <text value="Answer B"/>
                     </properties>
                   </component>
-                  <component id="95ab4" class="javax.swing.JCheckBox" binding="answerCCheckBox" default-binding="true">
+                  <component id="95ab4" class="javax.swing.JCheckBox" binding="CCheckBox">
                     <constraints/>
                     <properties>
                       <horizontalAlignment value="4"/>
                       <text value="Answer C"/>
                     </properties>
                   </component>
-                  <component id="a93f3" class="javax.swing.JCheckBox" binding="answerDCheckBox" default-binding="true">
+                  <component id="a93f3" class="javax.swing.JCheckBox" binding="DCheckBox">
                     <constraints/>
                     <properties>
                       <text value="Answer D"/>

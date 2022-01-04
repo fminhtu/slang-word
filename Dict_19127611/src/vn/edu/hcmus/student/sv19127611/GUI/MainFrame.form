@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="vn.edu.hcmus.student.sv19127611.GUI.MainFrame">
+  <grid id="27dc6" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="19" width="727" height="465"/>
+    </constraints>
+    <properties>
+      <preferredSize width="1000" height="500"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="70f6a" binding="tabbedPane">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="dd797" binding="dictPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Dictionary"/>
+            </constraints>
+            <properties/>
+            <border type="line" title="Search">
+              <color color="-5524801"/>
+            </border>
+            <children>
+              <grid id="f56b8" binding="searchPane" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none">
+                  <font/>
+                </border>
+                <children>
+                  <component id="539b8" class="javax.swing.JTextField" binding="searchTextField">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                  </component>
+                  <component id="34b20" class="javax.swing.JButton" binding="searchButton" default-binding="true">
+                    <constraints border-constraint="East"/>
+                    <properties>
+                      <text value="Search"/>
+                    </properties>
+                  </component>
+                  <component id="980de" class="javax.swing.JComboBox" binding="searchType">
+                    <constraints border-constraint="West"/>
+                    <properties>
+                      <model>
+                        <item value="Slang word                              &#9;&#9;   &#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;"/>
+                        <item value="Meaning                           "/>
+                      </model>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="5d5dc" binding="toolPane" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b7116" class="javax.swing.JButton" binding="addButton">
+                    <constraints/>
+                    <properties>
+                      <label value="Add"/>
+                      <text value="Add"/>
+                    </properties>
+                  </component>
+                  <component id="34868" class="javax.swing.JButton" binding="editButton">
+                    <constraints/>
+                    <properties>
+                      <label value="Edit"/>
+                      <text value="Edit"/>
+                    </properties>
+                  </component>
+                  <component id="84255" class="javax.swing.JButton" binding="deleteButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                  <component id="f7af5" class="javax.swing.JButton" binding="resetButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Reset"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <scrollpane id="b2c8c" binding="historyScrollPane">
+                <constraints>
+                  <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none" title="History"/>
+                <children>
+                  <component id="8a8ab" class="javax.swing.JTextArea" binding="historyArea">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="fc70a" class="javax.swing.JLabel" binding="aboutLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value=" Introduction to Java - HCMUS"/>
+                </properties>
+              </component>
+              <scrollpane id="428d2" binding="searchScrollPane">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </scrollpane>
+            </children>
+          </grid>
+          <grid id="44d7f" binding="gamePanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Games"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="dd2c9" binding="headerPane" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line" title=""/>
+                <children>
+                  <component id="209d0" class="javax.swing.JLabel" binding="todayLabel">
+                    <constraints/>
+                    <properties>
+                      <font name="Consolas" size="24"/>
+                      <text value="Slang for today:"/>
+                    </properties>
+                  </component>
+                  <component id="7a9e7" class="javax.swing.JLabel" binding="todayContentLabel">
+                    <constraints/>
+                    <properties>
+                      <alignmentY value="0.0"/>
+                      <font name="Consolas" size="28" style="0"/>
+                      <horizontalAlignment value="4"/>
+                      <iconTextGap value="4"/>
+                      <opaque value="false"/>
+                      <requestFocusEnabled value="true"/>
+                      <text value="Tu dep trai vo dich"/>
+                      <verifyInputWhenFocusTarget value="true"/>
+                      <verticalTextPosition value="0"/>
+                      <visible value="true"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="3eb2" binding="modePane" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="81c3a" class="javax.swing.JLabel" binding="modeLabel">
+                    <constraints/>
+                    <properties>
+                      <text value="Game-mode"/>
+                    </properties>
+                  </component>
+                  <component id="87b9b" class="javax.swing.JComboBox" binding="modeComboBox">
+                    <constraints/>
+                    <properties>
+                      <model>
+                        <item value="Guess meaning                   &#9;&#9;&#9;&#9;&#9;    "/>
+                        <item value="Guess slang word&#9;                 "/>
+                      </model>
+                    </properties>
+                  </component>
+                  <component id="21702" class="javax.swing.JButton" binding="selectButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Select"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="b00e6" binding="checkboxPane" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="3650d" class="javax.swing.JCheckBox" binding="answerACheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Answer A"/>
+                    </properties>
+                  </component>
+                  <component id="21d38" class="javax.swing.JCheckBox" binding="answerBCheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Answer B"/>
+                    </properties>
+                  </component>
+                  <component id="95ab4" class="javax.swing.JCheckBox" binding="answerCCheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <horizontalAlignment value="4"/>
+                      <text value="Answer C"/>
+                    </properties>
+                  </component>
+                  <component id="a93f3" class="javax.swing.JCheckBox" binding="answerDCheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Answer D"/>
+                    </properties>
+                  </component>
+                  <component id="685cb" class="javax.swing.JButton" binding="submitButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Submit"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="a645d" class="javax.swing.JTextPane" binding="questionPane">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <font name="Consolas" size="36"/>
+                  <margin top="3" left="3" bottom="3" right="3"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>

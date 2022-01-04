@@ -85,7 +85,7 @@ public class ButtonEvents implements ActionListener {
             if (selection == JOptionPane.OK_OPTION) {
                 if (correctAnswer(checkbox, index)) {
                     JOptionPane.showMessageDialog(f, "Correct answer");
-                } else {
+                } else if (!(correctAnswer(checkbox, index))) {
                     JOptionPane.showMessageDialog(f, "Incorrect answer");
                 }
             }
@@ -148,15 +148,37 @@ public class ButtonEvents implements ActionListener {
         return false;
     }
 
-    private int random_num(int min, int max) {
+    public static int random_num(int min, int max) {
         return (int)(Math.random() * (max - min + 1) + min);
     }
 
-    private String random_slang() {
+    public static String random_slang() {
         Set<String> slangSet = Dict.getAllSlang();
         String slang = "default";
         int i = 0;
         int random_int = random_num(0, slangSet.size() - 1);
+
+        for (String s : slangSet) {
+            if (i == random_int) {
+                slang = s;
+                break;
+            }
+            i += 1;
+        }
+
+        return slang;
+    }
+
+    public static String today_slang() {
+        String slang = "default";
+        Set<String> slangSet = Dict.getAllSlang();
+        int min = 0;
+        int max = slangSet.size() - 1, i = 0;
+        Date today = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        int dayOfYear = cal.get(Calendar.DAY_OF_YEAR);
+        int random_int = dayOfYear % max;
 
         for (String s : slangSet) {
             if (i == random_int) {

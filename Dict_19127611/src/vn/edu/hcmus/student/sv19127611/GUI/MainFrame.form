@@ -177,6 +177,7 @@
                   <component id="81c3a" class="javax.swing.JLabel" binding="modeLabel">
                     <constraints/>
                     <properties>
+                      <background color="-15720661"/>
                       <text value="Game-mode"/>
                     </properties>
                   </component>

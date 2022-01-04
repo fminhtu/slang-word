@@ -76,9 +76,10 @@ public class MainFrame extends JFrame {
     public void setMainFrame() {
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 500);
+
+        setBounds(300, 100, 700, 500);
         setVisible(true);
-        setTitle("Image");
+        setTitle("Slang dictionary");
 
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
@@ -90,13 +91,13 @@ public class MainFrame extends JFrame {
 
     public void setActionListenerForButton() {
         ButtonEvents instance = new ButtonEvents();
-        addButton.setActionCommand(Actions.find1.name());
+        addButton.setActionCommand(Actions.add.name());
         addButton.addActionListener(instance);
 
         editButton.setActionCommand(Actions.edit.name());
         editButton.addActionListener(instance);
 
-        deleteButton.setActionCommand(Actions.edit.name());
+        deleteButton.setActionCommand(Actions.delete.name());
         deleteButton.addActionListener(instance);
 
         resetButton.setActionCommand(Actions.reset.name());

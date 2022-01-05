@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Date 12/16/2021 - 4:31 PM
  * Description: ...
  */
-public class Menu extends JFrame {
+public class DemoMenu extends JFrame {
     ArrayList<JButton> buttonList = new ArrayList<JButton>(10);
     ArrayList<JLabel> labelList = new ArrayList<JLabel>(10);
 
@@ -24,7 +24,7 @@ public class Menu extends JFrame {
     }
 
 
-    public Menu() {
+    public DemoMenu() {
         Dict.loadHt("slang", ".txt");
         setLabelList();
         setJButton();
@@ -113,7 +113,7 @@ public class Menu extends JFrame {
     }
 
     public static void CreateAndShowGUI() {
-        Menu frame = new Menu();
+        DemoMenu frame = new DemoMenu();
         frame.setTitle("Dictionary");
         frame.setVisible(true);
         frame.setBounds(250, 250, 330, 350);

@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-import static javax.swing.SwingUtilities.updateComponentTreeUI;
-
 /**
  * vn.edu.hcmus.student.sv19127611.GUI
  * Created by fminhtu
@@ -15,9 +13,6 @@ import static javax.swing.SwingUtilities.updateComponentTreeUI;
  * Description: ...
  */
 public class MainFrame extends JFrame {
-    ArrayList<JButton> buttonList = new ArrayList<JButton>(10);
-    ArrayList<JLabel> labelList = new ArrayList<JLabel>(10);
-
     private enum Actions {
         find1, find2, history, add, edit, delete, reset, random, game1, game2;
     }
@@ -36,13 +31,13 @@ public class MainFrame extends JFrame {
     private JLabel aboutLabel;
     private JScrollPane historyScrollPane;
     private JTextArea historyArea;
-    private JPanel headerPane;
+    private JPanel headerPane2;
     private JCheckBox CCheckBox;
     private JComboBox searchType;
     private JComboBox modeComboBox;
     private JPanel modePane;
-    private JLabel todayLabel;
-    private JLabel todayContentLabel;
+    private JLabel todayLabel2;
+    private JLabel todayContentLabel2;
     private JLabel modeLabel;
     private JPanel checkboxPane;
     private JPanel toolPane;
@@ -53,6 +48,9 @@ public class MainFrame extends JFrame {
     private JButton selectButton;
     private JScrollPane searchScrollPane;
     private JTextPane questionPane;
+    private JPanel headerPane1;
+    private JLabel todayLabel1;
+    private JLabel todayContentLabel1;
     private JPanel demoPanel;
     private JTextArea textArea;
     int index;
@@ -62,7 +60,9 @@ public class MainFrame extends JFrame {
         JTable table = new JTable(new String[0][], column);
         table.setEnabled(false);
         searchScrollPane.getViewport().add(table);
-        todayContentLabel.setText(ButtonEvents.today_slang());
+
+        todayContentLabel1.setText(ButtonEvents.today_slang());
+        todayContentLabel2.setText(ButtonEvents.today_slang());
     }
 
     public MainFrame() {
@@ -76,18 +76,11 @@ public class MainFrame extends JFrame {
 
     public void setMainFrame() {
         setContentPane(contentPane);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        addWindowListener(new MyWindowListener());
         setBounds(300, 100, 900, 600);
         setVisible(true);
         setTitle("Slang dictionary");
-
-        try {
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch(Exception ignored){
-
-        }
     }
 
     public void setActionListenerForButton() {
@@ -187,6 +180,14 @@ public class MainFrame extends JFrame {
 
     private void changeQuestion() {
         String mode = modeComboBox.getSelectedItem().toString();
+
+        if (ButtonEvents.random_slang() == null | Dict.getMeaning(ButtonEvents.random_slang()) == null ){
+            String content = "Cannot create any question.";
+            questionPane.setText(content);
+            submitButton.setEnabled(false);
+            return;
+        }
+        submitButton.setEnabled(true);
         if (mode == "Guess meaning") {
             String slang = ButtonEvents.random_slang();
             String answer[] = {"A", "B", "C", "D"};
@@ -215,6 +216,13 @@ public class MainFrame extends JFrame {
                 }
             }
             questionPane.setText(question);
+        }
+    }
+
+    static class MyWindowListener extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            Dict.saveHt("slang", ".txt");
+            System.exit(0);
         }
     }
 

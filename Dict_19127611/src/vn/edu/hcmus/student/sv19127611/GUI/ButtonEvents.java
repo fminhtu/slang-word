@@ -154,7 +154,7 @@ public class ButtonEvents implements ActionListener {
 
     public static String random_slang() {
         Set<String> slangSet = Dict.getAllSlang();
-        String slang = "default";
+        String slang = "None";
         int i = 0;
         int random_int = random_num(0, slangSet.size() - 1);
 
@@ -170,10 +170,10 @@ public class ButtonEvents implements ActionListener {
     }
 
     public static String today_slang() {
-        String slang = "default";
+        String slang = "None";
         Set<String> slangSet = Dict.getAllSlang();
         int min = 0;
-        int max = slangSet.size() - 1, i = 0;
+        int max = slangSet.size(), i = 0;
         Date today = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(today);
@@ -196,7 +196,7 @@ public class ButtonEvents implements ActionListener {
 
         try {
             Set<String> slangSet = Dict.getAllSlang();
-            String slang = "default";
+            String slang = "None";
             int min = 0, max = slangSet.size() - 1, i = 0;
 
             Date today = new Date();
@@ -256,7 +256,7 @@ public class ButtonEvents implements ActionListener {
 
                 if (selection == JOptionPane.YES_OPTION) {
                     Dict.deleteSlang(slang);
-                    Dict.deleteSlang(meaning);
+                    Dict.deleteMeaning(meaning);
                     JOptionPane.showMessageDialog(f, "Delete success");
                 }
             }

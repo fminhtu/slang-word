@@ -296,6 +296,7 @@ public class ButtonEvents implements ActionListener {
             i++;
             new_slang = slang + " (" + Integer.toString(i) + ")";
         }
+        meaning = meaning + " (" + Integer.toString(i) + ")";
 
         Dict.addSlang(new_slang, meaning);
         Dict.addMeaning(meaning, new_slang);

@@ -114,7 +114,9 @@ public class MainFrame extends JFrame {
                     }
 
                     searchScrollPane.getViewport().removeAll();
-                    searchScrollPane.getViewport().add(new JTable(data, column));
+                    JTable table = new JTable(data, column);
+                    table.setEnabled(false);
+                    searchScrollPane.getViewport().add(table);
                 } else if (type == "Slang word") {
                     String meaning = Dict.getMeaning(keyword);
                     String[][] data = new String[1][2];

@@ -119,10 +119,15 @@ public class MainFrame extends JFrame {
                     searchScrollPane.getViewport().add(table);
                 } else if (type == "Slang word") {
                     String meaning = Dict.getMeaning(keyword);
-                    String[][] data = new String[1][2];
+                    String[][] data;
 
-                    data[0][0] = keyword;
-                    data[0][1] = meaning;
+                    if (meaning != null) {
+                        data = new String[1][2];
+                        data[0][0] = keyword;
+                        data[0][1] = meaning;
+                    } else {
+                        data = new String[0][2];
+                    }
 
                     searchScrollPane.getViewport().removeAll();
                     JTable table = new JTable(data, column);
